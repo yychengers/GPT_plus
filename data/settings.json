@@ -1,0 +1,20 @@
+{
+  "title": "Personal Log",
+  "description": "私人日志与公开分享空间",
+  "author": "Me",
+  "links": [
+    {
+      "label": "公开日志首页",
+      "href": "/"
+    },
+    {
+      "label": "写作入口",
+      "href": "/write"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/",
+      "external": true
+    }
+  ]
+}
