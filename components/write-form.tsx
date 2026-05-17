@@ -159,11 +159,11 @@ export function WriteForm({ initialPosts }: WriteFormProps) {
   }
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
-      <aside className="h-fit border border-[var(--line)] bg-[var(--panel)] p-4 shadow-sm lg:sticky lg:top-6">
+    <div className="grid gap-6 md:grid-cols-[260px_minmax(0,1fr)] xl:grid-cols-[280px_minmax(0,1fr)]">
+      <aside className="relic-panel h-fit p-4 md:sticky md:top-6">
         <div className="flex items-center justify-between gap-3">
-          <h2 className="text-sm font-semibold text-[var(--muted)]">已有日志</h2>
-          <button className="text-sm font-medium text-[var(--accent)]" type="button" onClick={resetForm}>
+          <h2 className="gothic-title text-sm font-semibold text-[#ffd28a]">已有日志</h2>
+          <button className="text-sm font-medium text-[#ffb3a8] hover:text-[#ffd28a]" type="button" onClick={resetForm}>
             新建
           </button>
         </div>
@@ -171,7 +171,7 @@ export function WriteForm({ initialPosts }: WriteFormProps) {
           {posts.map((post) => (
             <button
               key={post.id}
-              className="w-full border border-[var(--line)] px-3 py-2 text-left text-sm hover:border-[var(--accent)]"
+              className="relic-link w-full px-3 py-2 text-left text-sm"
               type="button"
               onClick={() => loadPost(post.slug)}
             >
@@ -183,29 +183,29 @@ export function WriteForm({ initialPosts }: WriteFormProps) {
       </aside>
 
       <div className="space-y-4">
-        <div className="grid gap-4 border border-[var(--line)] bg-[var(--panel)] p-5 shadow-sm sm:grid-cols-2">
+        <div className="relic-panel grid gap-4 p-5 sm:grid-cols-2">
           <label className="sm:col-span-2">
-            <span className="text-sm font-medium">标题</span>
+            <span className="text-sm font-medium text-[#e8d8bd]">标题</span>
             <input
-              className="mt-2 w-full border border-[var(--line)] bg-white px-3 py-3 outline-none focus:border-[var(--accent)]"
+              className="ritual-field mt-2 w-full px-3 py-3"
               value={form.title}
               onChange={(event) => updateField("title", event.target.value)}
               placeholder="今天的日志标题"
             />
           </label>
           <label>
-            <span className="text-sm font-medium">Slug</span>
+            <span className="text-sm font-medium text-[#e8d8bd]">Slug</span>
             <input
-              className="mt-2 w-full border border-[var(--line)] bg-white px-3 py-3 outline-none focus:border-[var(--accent)]"
+              className="ritual-field mt-2 w-full px-3 py-3"
               value={form.slug}
               onChange={(event) => updateField("slug", slugify(event.target.value))}
               placeholder="my-daily-note"
             />
           </label>
           <label>
-            <span className="text-sm font-medium">状态</span>
+            <span className="text-sm font-medium text-[#e8d8bd]">状态</span>
             <select
-              className="mt-2 w-full border border-[var(--line)] bg-white px-3 py-3 outline-none focus:border-[var(--accent)]"
+              className="ritual-field mt-2 w-full px-3 py-3"
               value={form.status}
               onChange={(event) => updateField("status", event.target.value as PostStatus)}
             >
@@ -215,27 +215,27 @@ export function WriteForm({ initialPosts }: WriteFormProps) {
             </select>
           </label>
           <label className="sm:col-span-2">
-            <span className="text-sm font-medium">摘要</span>
+            <span className="text-sm font-medium text-[#e8d8bd]">摘要</span>
             <input
-              className="mt-2 w-full border border-[var(--line)] bg-white px-3 py-3 outline-none focus:border-[var(--accent)]"
+              className="ritual-field mt-2 w-full px-3 py-3"
               value={form.excerpt}
               onChange={(event) => updateField("excerpt", event.target.value)}
               placeholder="一句话记录这篇日志讲什么"
             />
           </label>
           <label className="sm:col-span-2">
-            <span className="text-sm font-medium">标签</span>
+            <span className="text-sm font-medium text-[#e8d8bd]">标签</span>
             <input
-              className="mt-2 w-full border border-[var(--line)] bg-white px-3 py-3 outline-none focus:border-[var(--accent)]"
+              className="ritual-field mt-2 w-full px-3 py-3"
               value={form.tags}
               onChange={(event) => updateField("tags", event.target.value)}
               placeholder="生活, 项目, 复盘"
             />
           </label>
           <label className="sm:col-span-2">
-            <span className="text-sm font-medium">正文 Markdown</span>
+            <span className="text-sm font-medium text-[#e8d8bd]">正文 Markdown</span>
             <textarea
-              className="mt-2 min-h-[420px] w-full resize-y border border-[var(--line)] bg-white px-3 py-3 leading-7 outline-none focus:border-[var(--accent)]"
+              className="ritual-field mt-2 min-h-[420px] w-full resize-y px-3 py-3 leading-7"
               value={form.content}
               onChange={(event) => updateField("content", event.target.value)}
             />
@@ -244,7 +244,7 @@ export function WriteForm({ initialPosts }: WriteFormProps) {
 
         <div className="flex flex-wrap items-center gap-3">
           <button
-            className="inline-flex min-h-11 items-center justify-center gap-2 border border-[var(--accent)] bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-white hover:bg-[#0c625c] disabled:cursor-not-allowed disabled:opacity-60"
+            className="infernal-button inline-flex min-h-11 items-center justify-center gap-2 px-4 py-2 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-60"
             type="button"
             onClick={submitForm}
             disabled={isPending}
@@ -255,14 +255,14 @@ export function WriteForm({ initialPosts }: WriteFormProps) {
           {selectedPost ? (
             <>
               <button
-                className="inline-flex min-h-11 items-center justify-center gap-2 border border-[var(--line)] bg-[var(--panel)] px-4 py-2 text-sm font-semibold hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                className="iron-button inline-flex min-h-11 items-center justify-center gap-2 px-4 py-2 text-sm font-semibold"
                 type="button"
                 onClick={copyShareLink}
               >
                 {copied ? <Check size={18} /> : <Copy size={18} />}
                 {copied ? "已复制" : "复制分享链接"}
               </button>
-              <Link className="text-sm font-medium text-[var(--accent)]" href={`/post/${selectedPost.slug}`}>
+              <Link className="text-sm font-medium text-[#ffb3a8] hover:text-[#ffd28a]" href={`/post/${selectedPost.slug}`}>
                 预览文章
               </Link>
             </>

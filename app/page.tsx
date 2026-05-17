@@ -13,14 +13,14 @@ export default async function HomePage() {
 
   return (
     <Shell settings={settings}>
-      <section className="grid gap-8 py-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:py-12">
+      <section className="grid gap-8 py-8 md:grid-cols-[minmax(0,1fr)_320px] lg:py-12">
         <div className="min-w-0">
           <div className="mb-8 max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 border border-[var(--line)] bg-[var(--panel)] px-3 py-1 text-sm text-[var(--muted)]">
+            <div className="rune-kicker mb-4 inline-flex items-center gap-2 px-3 py-1 text-sm">
               <BookOpen size={16} aria-hidden="true" />
               {settings.description}
             </div>
-            <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-normal text-[var(--foreground)] sm:text-5xl">
+            <h1 className="gothic-title max-w-3xl text-4xl font-semibold leading-tight tracking-normal text-[var(--foreground)] sm:text-6xl">
               {settings.title}
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--muted)]">
@@ -42,7 +42,7 @@ export default async function HomePage() {
             {publicPosts.map((post) => (
               <article
                 key={post.id}
-                className="border border-[var(--line)] bg-[var(--panel)] p-5 shadow-sm transition hover:border-[#a7b8b1]"
+                className="relic-panel p-5 transition hover:border-[rgba(239,68,68,0.72)]"
               >
                 <div className="mb-3 flex flex-wrap items-center gap-2 text-sm text-[var(--muted)]">
                   <time dateTime={post.publishedAt ?? post.updatedAt}>
@@ -54,15 +54,15 @@ export default async function HomePage() {
                   {post.pinned ? <Badge>置顶</Badge> : null}
                 </div>
                 <Link href={`/post/${post.slug}`} className="group block">
-                  <h2 className="text-2xl font-semibold leading-tight group-hover:text-[var(--accent)]">
+                  <h2 className="gothic-title text-2xl font-semibold leading-tight group-hover:text-[#ffd28a]">
                     {post.title}
                   </h2>
                   <p className="mt-3 line-clamp-2 text-sm leading-6 text-[var(--muted)]">{post.excerpt}</p>
                 </Link>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {post.tags.map((tag) => (
-                    <span key={tag} className="inline-flex items-center gap-1 text-sm text-[var(--muted)]">
-                      <Tag size={14} aria-hidden="true" />
+                    <span key={tag} className="inline-flex items-center gap-1 text-sm text-[#c9a66b]">
+                      <Tag size={14} className="text-[var(--accent)]" aria-hidden="true" />
                       {tag}
                     </span>
                   ))}
@@ -72,14 +72,14 @@ export default async function HomePage() {
           </div>
         </div>
 
-        <aside className="h-fit border border-[var(--line)] bg-[var(--panel)] p-5 shadow-sm lg:sticky lg:top-6">
-          <h2 className="text-sm font-semibold uppercase tracking-normal text-[var(--muted)]">分享链接</h2>
+        <aside className="relic-panel h-fit p-5 md:sticky md:top-6">
+          <h2 className="gothic-title text-sm font-semibold uppercase tracking-normal text-[#ffd28a]">分享链接</h2>
           <div className="mt-4 space-y-3">
             {settings.links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="flex items-center justify-between border border-[var(--line)] px-3 py-2 text-sm transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                className="relic-link flex items-center justify-between px-3 py-2 text-sm transition"
                 target={link.external ? "_blank" : undefined}
                 rel={link.external ? "noreferrer" : undefined}
               >
@@ -89,7 +89,7 @@ export default async function HomePage() {
             ))}
           </div>
           <p className="mt-5 text-sm leading-6 text-[var(--muted)]">
-            链接配置在 <code className="bg-[var(--soft)] px-1 py-0.5">data/settings.json</code>，后续可以接后台配置页。
+            链接配置在 <code className="border border-[rgba(194,138,53,0.28)] bg-[var(--soft)] px-1 py-0.5 text-[#ffd28a]">data/settings.json</code>，后续可以接后台配置页。
           </p>
         </aside>
       </section>

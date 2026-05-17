@@ -23,21 +23,21 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <Shell settings={settings}>
       <article className="mx-auto max-w-3xl py-8 lg:py-12">
-        <Link href="/" className="mb-8 inline-flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[var(--accent)]">
+        <Link href="/" className="mb-8 inline-flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[#ffd28a]">
           <ArrowLeft size={16} aria-hidden="true" />
           返回日志列表
         </Link>
-        <div className="border-b border-[var(--line)] pb-8">
+        <div className="relic-panel p-6">
           <div className="mb-4 flex flex-wrap items-center gap-2 text-sm text-[var(--muted)]">
             <time dateTime={post.publishedAt ?? post.updatedAt}>{formatDate(post.publishedAt ?? post.updatedAt)}</time>
             <span>/</span>
             <span>{post.readingMinutes} 分钟阅读</span>
           </div>
-          <h1 className="text-4xl font-semibold leading-tight tracking-normal sm:text-5xl">{post.title}</h1>
+          <h1 className="gothic-title text-4xl font-semibold leading-tight tracking-normal sm:text-5xl">{post.title}</h1>
           <p className="mt-4 text-base leading-7 text-[var(--muted)]">{post.excerpt}</p>
           <Link
             href={sharePath}
-            className="mt-6 inline-flex items-center gap-2 border border-[var(--line)] bg-[var(--panel)] px-3 py-2 text-sm hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            className="iron-button mt-6 inline-flex items-center gap-2 px-3 py-2 text-sm"
           >
             <Link2 size={16} aria-hidden="true" />
             打开分享页
